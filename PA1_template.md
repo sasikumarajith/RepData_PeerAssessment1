@@ -39,6 +39,7 @@ hist(totalStepsPerDay$total,breaks=50)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+
 Let us now summarize to get the mean and median of total number of steps in a day
 
 
@@ -65,6 +66,21 @@ plot(avgStepsPerInterval$interval,avgStepsPerInterval$avg,type="l")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+
+Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
+
+
+```r
+avgStepsPerInterval[which.max(avgStepsPerInterval$avg),]
+```
+
+```
+## Source: local data frame [1 x 2]
+## 
+##   interval      avg
+## 1      835 206.1698
+```
+
 
 ##Imputing Mising Values
 
@@ -108,7 +124,7 @@ totalStepsPerDaydupe<-summarise(by_datedupe,total=sum(steps))
 hist(totalStepsPerDaydupe$total,breaks=50)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
 
 The mean and media of the total number of steps taken per day is also calculated.
 
@@ -162,7 +178,7 @@ avgStepsPerIntervalWeekend<-summarise(by_intervalWeekend,avg=mean(steps))
 plot(avgStepsPerIntervalWeekend$interval,avgStepsPerIntervalWeekend$avg,type="l",xlab="Interval",ylab="Weekends",ylim=c(0,300))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
 
 
 
